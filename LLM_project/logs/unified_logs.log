@@ -1,0 +1,331 @@
+2025-04-02 11:52:35.427 | INFO     | __main__:start_logging_server:30 - Logging server started on port 5555
+2025-04-02 11:52:50.223 | INFO     | __main__:start_logging_server:46 - Setting up tools...
+2025-04-02 11:52:50.240 | INFO     | __main__:start_logging_server:46 - Initializing agent...
+2025-04-02 11:52:50.243 | INFO     | __main__:start_logging_server:46 - Creating custom agent executor...
+2025-04-02 11:52:50.244 | INFO     | __main__:start_logging_server:46 - Custom agent executor successfully initialized.
+2025-04-02 11:52:50.244 | INFO     | __main__:start_logging_server:46 - Executing agent query: What files are available for analysis?
+2025-04-02 11:52:50.244 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': 'What files are available for analysis?'}
+2025-04-02 11:52:57.504 | INFO     | __main__:start_logging_server:46 - Executing tool: ListFiles with input: {}
+2025-04-02 11:52:57.536 | INFO     | __main__:start_logging_server:46 - Listing available data files
+2025-04-02 11:52:57.537 | INFO     | __main__:start_logging_server:46 - Execution result for ListFiles: {'output': 'Available data files: sales_data.csv, test.csv, employees.csv', 'files': ['sales_data.csv', 'test.csv', 'employees.csv'], 'should_stop': True}
+2025-04-02 11:52:57.539 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-02 11:52:57.540 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': 'What files are available for analysis?', 'output': 'Available data files: sales_data.csv, test.csv, employees.csv', 'intermediate_steps': [(AgentAction(tool='ListFiles', tool_input={}, log='Thought:\nAction:\n```\n{\n  "action": "ListFiles",\n  "action_input": {}\n}\n```\n\n'), {'output': 'Available data files: sales_data.csv, test.csv, employees.csv', 'files': ['sales_data.csv', 'test.csv', 'employees.csv'], 'should_stop': True})]}
+2025-04-02 11:52:57.540 | INFO     | __main__:start_logging_server:46 - Agent execution stopping due to should_stop flag in intermediate steps.
+2025-04-02 11:52:57.540 | INFO     | __main__:start_logging_server:46 - Executing agent query: Show me the first 5 rows of 'test.csv'
+2025-04-02 11:52:57.540 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Show me the first 5 rows of 'test.csv'"}
+2025-04-02 11:53:01.906 | INFO     | __main__:start_logging_server:46 - Executing tool: ShowDataSample with input: {'file_name': 'test.csv', 'num_rows': 5, 'columns': None}
+2025-04-02 11:53:01.915 | INFO     | __main__:start_logging_server:46 - Showing data sample from test.csv, rows: 5, columns: None
+2025-04-02 11:53:01.916 | INFO     | __main__:start_logging_server:46 - Loading data file: test.csv
+2025-04-02 11:53:01.964 | INFO     | __main__:start_logging_server:46 - Successfully loaded test.csv with shape (3, 3)
+2025-04-02 11:53:01.982 | INFO     | __main__:start_logging_server:46 - Data sample retrieved successfully
+2025-04-02 11:53:01.983 | INFO     | __main__:start_logging_server:46 - Execution result for ShowDataSample: {'output': 'First 5 rows of test.csv:\nname: John Doe\nage: 32\nsalary: 75000\n--------------------\nname: Jane Smith\nage: 28\nsalary: 85000\n--------------------\nname: Mike Johnson\nage: 45\nsalary: 95000\n--------------------', 'sample': [{'name': 'John Doe', 'age': 32, 'salary': 75000}, {'name': 'Jane Smith', 'age': 28, 'salary': 85000}, {'name': 'Mike Johnson', 'age': 45, 'salary': 95000}], 'should_stop': True}
+2025-04-02 11:53:01.983 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-02 11:53:01.983 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Show me the first 5 rows of 'test.csv'", 'output': 'First 5 rows of test.csv:\nname: John Doe\nage: 32\nsalary: 75000\n--------------------\nname: Jane Smith\nage: 28\nsalary: 85000\n--------------------\nname: Mike Johnson\nage: 45\nsalary: 95000\n--------------------', 'intermediate_steps': [(AgentAction(tool='ShowDataSample', tool_input={'file_name': 'test.csv', 'num_rows': 5, 'columns': None}, log='Thought:\n\nAction:\n```\n{\n  "action": "ShowDataSample",\n  "action_input": {\n    "file_name": "test.csv",\n    "num_rows": 5,\n    "columns": null\n  }\n}\n```\n\n'), {'output': 'First 5 rows of test.csv:\nname: John Doe\nage: 32\nsalary: 75000\n--------------------\nname: Jane Smith\nage: 28\nsalary: 85000\n--------------------\nname: Mike Johnson\nage: 45\nsalary: 95000\n--------------------', 'sample': [{'name': 'John Doe', 'age': 32, 'salary': 75000}, {'name': 'Jane Smith', 'age': 28, 'salary': 85000}, {'name': 'Mike Johnson', 'age': 45, 'salary': 95000}], 'should_stop': True})]}
+2025-04-02 11:53:01.983 | INFO     | __main__:start_logging_server:46 - Agent execution stopping due to should_stop flag in intermediate steps.
+2025-04-02 11:53:01.983 | INFO     | __main__:start_logging_server:46 - Executing agent query: List all columns in 'test.csv' with their data types
+2025-04-02 11:53:01.983 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "List all columns in 'test.csv' with their data types"}
+2025-04-02 11:53:04.849 | INFO     | __main__:start_logging_server:46 - Executing tool: GetColumns with input: {'file_name': 'test.csv'}
+2025-04-02 11:53:04.859 | INFO     | __main__:start_logging_server:46 - Getting columns for file: test.csv
+2025-04-02 11:53:04.859 | INFO     | __main__:start_logging_server:46 - Loading data file: test.csv
+2025-04-02 11:53:04.890 | INFO     | __main__:start_logging_server:46 - Successfully loaded test.csv with shape (3, 3)
+2025-04-02 11:53:04.905 | INFO     | __main__:start_logging_server:46 - Successfully retrieved column information
+2025-04-02 11:53:04.906 | INFO     | __main__:start_logging_server:46 - Execution result for GetColumns: {'output': 'Columns in test.csv:\n- name: object\n- age: int64\n- salary: int64', 'columns': ['name', 'age', 'salary'], 'dtypes': {'name': dtype('O'), 'age': dtype('int64'), 'salary': dtype('int64')}, 'sample': [{'name': 'John Doe', 'age': 32, 'salary': 75000}, {'name': 'Jane Smith', 'age': 28, 'salary': 85000}, {'name': 'Mike Johnson', 'age': 45, 'salary': 95000}], 'should_stop': True}
+2025-04-02 11:53:04.907 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-02 11:53:04.907 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "List all columns in 'test.csv' with their data types", 'output': 'Columns in test.csv:\n- name: object\n- age: int64\n- salary: int64', 'intermediate_steps': [(AgentAction(tool='GetColumns', tool_input={'file_name': 'test.csv'}, log='Thought:\n\nAction:\n```\n{\n  "action": "GetColumns",\n  "action_input": {"file_name": "test.csv"}\n}\n```\n\n'), {'output': 'Columns in test.csv:\n- name: object\n- age: int64\n- salary: int64', 'columns': ['name', 'age', 'salary'], 'dtypes': {'name': dtype('O'), 'age': dtype('int64'), 'salary': dtype('int64')}, 'sample': [{'name': 'John Doe', 'age': 32, 'salary': 75000}, {'name': 'Jane Smith', 'age': 28, 'salary': 85000}, {'name': 'Mike Johnson', 'age': 45, 'salary': 95000}], 'should_stop': True})]}
+2025-04-02 11:53:04.908 | INFO     | __main__:start_logging_server:46 - Agent execution stopping due to should_stop flag in intermediate steps.
+2025-04-02 11:53:04.908 | INFO     | __main__:start_logging_server:46 - Executing agent query: Show me a data quality report for 'test.csv'
+2025-04-02 11:53:04.908 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Show me a data quality report for 'test.csv'"}
+2025-04-02 11:53:07.596 | INFO     | __main__:start_logging_server:46 - Executing tool: DataQualityReport with input: {'file_name': 'test.csv'}
+2025-04-02 11:53:07.604 | INFO     | __main__:start_logging_server:46 - Starting data quality assessment for: test.csv
+2025-04-02 11:53:07.604 | INFO     | __main__:start_logging_server:46 - Loading data file: test.csv
+2025-04-02 11:53:07.621 | INFO     | __main__:start_logging_server:46 - Successfully loaded test.csv with shape (3, 3)
+2025-04-02 11:53:07.629 | INFO     | __main__:start_logging_server:46 - Data loaded successfully. Dimensions: (3, 3)
+2025-04-02 11:53:07.654 | INFO     | __main__:start_logging_server:46 - Quality report generated. Score: 100.0
+2025-04-02 11:53:07.655 | INFO     | __main__:start_logging_server:46 - Execution result for DataQualityReport: {'output': 'Data Quality Report for test.csv:\n{\n  "file_name": "test.csv",\n  "total_rows": 3,\n  "total_columns": 3,\n  "missing_values": {\n    "name": 0,\n    "age": 0,\n    "salary": 0\n  },\n  "missing_percentage": {\n    "name": 0.0,\n    "age": 0.0,\n    "salary": 0.0\n  },\n  "duplicate_rows": 0,\n  "data_types": {\n    "name": "object",\n    "age": "int64",\n    "salary": "int64"\n  },\n  "numeric_stats": {\n    "age": {\n      "mean": 35.0,\n      "median": 32.0,\n      "std": 8.888194417315589,\n      "min": 28,\n      "max": 45,\n      "skew": 1.3458329954115096,\n      "kurtosis": NaN\n    },\n    "salary": {\n      "mean": 85000.0,\n      "median": 85000.0,\n      "std": 10000.0,\n      "min": 75000,\n      "max": 95000,\n      "skew": 0.0,\n      "kurtosis": NaN\n    }\n  },\n  "unique_values": {\n    "name": 3,\n    "age": 3,\n    "salary": 3\n  },\n  "memory_usage": 357,\n  "sample_data": {\n    "name": [\n      "John Doe",\n      "Jane Smith",\n      "Mike Johnson"\n    ],\n    "age": [\n      32,\n      28,\n      45\n    ],\n    "salary": [\n      75000,\n      85000,\n      95000\n    ]\n  },\n  "quality_issues": [],\n  "quality_score": 100.0\n}', 'report': {'file_name': 'test.csv', 'total_rows': 3, 'total_columns': 3, 'missing_values': {'name': 0, 'age': 0, 'salary': 0}, 'missing_percentage': {'name': 0.0, 'age': 0.0, 'salary': 0.0}, 'duplicate_rows': 0, 'data_types': {'name': 'object', 'age': 'int64', 'salary': 'int64'}, 'numeric_stats': {'age': {'mean': 35.0, 'median': 32.0, 'std': 8.888194417315589, 'min': 28, 'max': 45, 'skew': 1.3458329954115096, 'kurtosis': nan}, 'salary': {'mean': 85000.0, 'median': 85000.0, 'std': 10000.0, 'min': 75000, 'max': 95000, 'skew': 0.0, 'kurtosis': nan}}, 'unique_values': {'name': 3, 'age': 3, 'salary': 3}, 'memory_usage': 357, 'sample_data': {'name': ['John Doe', 'Jane Smith', 'Mike Johnson'], 'age': [32, 28, 45], 'salary': [75000, 85000, 95000]}, 'quality_issues': [], 'quality_score': 100.0}, 'should_stop': True}
+2025-04-02 11:53:07.656 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-02 11:53:07.656 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Show me a data quality report for 'test.csv'", 'output': 'Data Quality Report for test.csv:\n{\n  "file_name": "test.csv",\n  "total_rows": 3,\n  "total_columns": 3,\n  "missing_values": {\n    "name": 0,\n    "age": 0,\n    "salary": 0\n  },\n  "missing_percentage": {\n    "name": 0.0,\n    "age": 0.0,\n    "salary": 0.0\n  },\n  "duplicate_rows": 0,\n  "data_types": {\n    "name": "object",\n    "age": "int64",\n    "salary": "int64"\n  },\n  "numeric_stats": {\n    "age": {\n      "mean": 35.0,\n      "median": 32.0,\n      "std": 8.888194417315589,\n      "min": 28,\n      "max": 45,\n      "skew": 1.3458329954115096,\n      "kurtosis": NaN\n    },\n    "salary": {\n      "mean": 85000.0,\n      "median": 85000.0,\n      "std": 10000.0,\n      "min": 75000,\n      "max": 95000,\n      "skew": 0.0,\n      "kurtosis": NaN\n    }\n  },\n  "unique_values": {\n    "name": 3,\n    "age": 3,\n    "salary": 3\n  },\n  "memory_usage": 357,\n  "sample_data": {\n    "name": [\n      "John Doe",\n      "Jane Smith",\n      "Mike Johnson"\n    ],\n    "age": [\n      32,\n      28,\n      45\n    ],\n    "salary": [\n      75000,\n      85000,\n      95000\n    ]\n  },\n  "quality_issues": [],\n  "quality_score": 100.0\n}', 'intermediate_steps': [(AgentAction(tool='DataQualityReport', tool_input={'file_name': 'test.csv'}, log='Thought:\n\nAction:\n```\n{\n  "action": "DataQualityReport",\n  "action_input": {"file_name": "test.csv"}\n}\n```\n\n'), {'output': 'Data Quality Report for test.csv:\n{\n  "file_name": "test.csv",\n  "total_rows": 3,\n  "total_columns": 3,\n  "missing_values": {\n    "name": 0,\n    "age": 0,\n    "salary": 0\n  },\n  "missing_percentage": {\n    "name": 0.0,\n    "age": 0.0,\n    "salary": 0.0\n  },\n  "duplicate_rows": 0,\n  "data_types": {\n    "name": "object",\n    "age": "int64",\n    "salary": "int64"\n  },\n  "numeric_stats": {\n    "age": {\n      "mean": 35.0,\n      "median": 32.0,\n      "std": 8.888194417315589,\n      "min": 28,\n      "max": 45,\n      "skew": 1.3458329954115096,\n      "kurtosis": NaN\n    },\n    "salary": {\n      "mean": 85000.0,\n      "median": 85000.0,\n      "std": 10000.0,\n      "min": 75000,\n      "max": 95000,\n      "skew": 0.0,\n      "kurtosis": NaN\n    }\n  },\n  "unique_values": {\n    "name": 3,\n    "age": 3,\n    "salary": 3\n  },\n  "memory_usage": 357,\n  "sample_data": {\n    "name": [\n      "John Doe",\n      "Jane Smith",\n      "Mike Johnson"\n    ],\n    "age": [\n      32,\n      28,\n      45\n    ],\n    "salary": [\n      75000,\n      85000,\n      95000\n    ]\n  },\n  "quality_issues": [],\n  "quality_score": 100.0\n}', 'report': {'file_name': 'test.csv', 'total_rows': 3, 'total_columns': 3, 'missing_values': {'name': 0, 'age': 0, 'salary': 0}, 'missing_percentage': {'name': 0.0, 'age': 0.0, 'salary': 0.0}, 'duplicate_rows': 0, 'data_types': {'name': 'object', 'age': 'int64', 'salary': 'int64'}, 'numeric_stats': {'age': {'mean': 35.0, 'median': 32.0, 'std': 8.888194417315589, 'min': 28, 'max': 45, 'skew': 1.3458329954115096, 'kurtosis': nan}, 'salary': {'mean': 85000.0, 'median': 85000.0, 'std': 10000.0, 'min': 75000, 'max': 95000, 'skew': 0.0, 'kurtosis': nan}}, 'unique_values': {'name': 3, 'age': 3, 'salary': 3}, 'memory_usage': 357, 'sample_data': {'name': ['John Doe', 'Jane Smith', 'Mike Johnson'], 'age': [32, 28, 45], 'salary': [75000, 85000, 95000]}, 'quality_issues': [], 'quality_score': 100.0}, 'should_stop': True})]}
+2025-04-02 11:53:07.656 | INFO     | __main__:start_logging_server:46 - Agent execution stopping due to should_stop flag in intermediate steps.
+2025-04-02 11:53:07.656 | INFO     | __main__:start_logging_server:46 - Executing agent query: Check for missing values in 'test.csv'
+2025-04-02 11:53:07.656 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Check for missing values in 'test.csv'"}
+2025-04-02 11:53:11.464 | INFO     | __main__:start_logging_server:46 - Executing tool: CheckMissingValues with input: {'file_name': {'title': 'File Name', 'type': 'string', 'value': 'test.csv'}}
+2025-04-02 11:53:11.469 | ERROR    | __main__:start_logging_server:42 - Error executing tool CheckMissingValues: 1 validation error for CheckMissingValues
+file_name
+  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 't...g', 'value': 'test.csv'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+2025-04-02 11:53:11.470 | ERROR    | __main__:start_logging_server:42 - Error executing tool CheckMissingValues: 1 validation error for CheckMissingValues
+file_name
+  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 't...g', 'value': 'test.csv'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+2025-04-02 11:53:11.470 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Check for missing values in 'test.csv'", 'output': "Error executing tool CheckMissingValues: 1 validation error for CheckMissingValues\nfile_name\n  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 't...g', 'value': 'test.csv'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type", 'intermediate_steps': [(AgentAction(tool='CheckMissingValues', tool_input={'file_name': {'title': 'File Name', 'type': 'string', 'value': 'test.csv'}}, log='Thought:\n\nAction:\n```\n{\n  "action": "CheckMissingValues",\n  "action_input": {\n    "file_name": {"title": "File Name", "type": "string", "value": "test.csv"}\n  }\n}\n```\n\n'), None)]}
+2025-04-02 11:53:11.471 | INFO     | __main__:start_logging_server:46 - Executing agent query: Identify outliers in the salary column of 'test.csv'
+2025-04-02 11:53:11.471 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Identify outliers in the salary column of 'test.csv'"}
+2025-04-02 11:53:20.584 | INFO     | __main__:start_logging_server:46 - Executing tool: DetectOutliers with input: {'file_name': {'title': 'File Name', 'type': 'string', 'value': 'test.csv'}, 'column': {'title': 'Column', 'type': 'string', 'value': 'salary'}, 'method': {'default': 'iqr', 'title': 'Method', 'type': 'string', 'value': 'iqr'}, 'threshold': {'default': 1.5, 'title': 'Threshold', 'type': 'number', 'value': 2}}
+2025-04-02 11:53:20.591 | ERROR    | __main__:start_logging_server:42 - Error executing tool DetectOutliers: 4 validation errors for DetectOutliers
+file_name
+  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 't...g', 'value': 'test.csv'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+column
+  Input should be a valid string [type=string_type, input_value={'title': 'Column', 'type...ing', 'value': 'salary'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+method
+  Input should be a valid string [type=string_type, input_value={'default': 'iqr', 'title...string', 'value': 'iqr'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+threshold
+  Input should be a valid number [type=float_type, input_value={'default': 1.5, 'title':...': 'number', 'value': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/float_type
+2025-04-02 11:53:20.592 | ERROR    | __main__:start_logging_server:42 - Error executing tool DetectOutliers: 4 validation errors for DetectOutliers
+file_name
+  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 't...g', 'value': 'test.csv'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+column
+  Input should be a valid string [type=string_type, input_value={'title': 'Column', 'type...ing', 'value': 'salary'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+method
+  Input should be a valid string [type=string_type, input_value={'default': 'iqr', 'title...string', 'value': 'iqr'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+threshold
+  Input should be a valid number [type=float_type, input_value={'default': 1.5, 'title':...': 'number', 'value': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/float_type
+2025-04-02 11:53:20.592 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Identify outliers in the salary column of 'test.csv'", 'output': "Error executing tool DetectOutliers: 4 validation errors for DetectOutliers\nfile_name\n  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 't...g', 'value': 'test.csv'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncolumn\n  Input should be a valid string [type=string_type, input_value={'title': 'Column', 'type...ing', 'value': 'salary'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\nmethod\n  Input should be a valid string [type=string_type, input_value={'default': 'iqr', 'title...string', 'value': 'iqr'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\nthreshold\n  Input should be a valid number [type=float_type, input_value={'default': 1.5, 'title':...': 'number', 'value': 2}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/float_type", 'intermediate_steps': [(AgentAction(tool='DetectOutliers', tool_input={'file_name': {'title': 'File Name', 'type': 'string', 'value': 'test.csv'}, 'column': {'title': 'Column', 'type': 'string', 'value': 'salary'}, 'method': {'default': 'iqr', 'title': 'Method', 'type': 'string', 'value': 'iqr'}, 'threshold': {'default': 1.5, 'title': 'Threshold', 'type': 'number', 'value': 2}}, log='Thought:\n\nAction:\n```\n{\n  "action": "DetectOutliers",\n  "action_input": {\n    "file_name": {"title": "File Name", "type": "string", "value": "test.csv"},\n    "column": {"title": "Column", "type": "string", "value": "salary"},\n    "method": {"default": "iqr", "title": "Method", "type": "string", "value": "iqr"},\n    "threshold": {"default": 1.5, "title": "Threshold", "type": "number", "value": 2}\n  }\n}\n```\n\n'), None)]}
+2025-04-02 11:53:20.592 | INFO     | __main__:start_logging_server:46 - Executing agent query: What is the average and maximum salary in 'test.csv'?
+2025-04-02 11:53:20.592 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "What is the average and maximum salary in 'test.csv'?"}
+2025-04-02 11:53:24.539 | INFO     | __main__:start_logging_server:46 - Executing tool: AggregateData with input: {'file_name': 'test.csv', 'column': 'salary', 'agg_funcs': ['mean', 'max']}
+2025-04-02 11:53:24.548 | INFO     | __main__:start_logging_server:46 - Aggregating data in test.csv, column: salary, functions: ['mean', 'max']
+2025-04-02 11:53:24.548 | INFO     | __main__:start_logging_server:46 - Loading data file: test.csv
+2025-04-02 11:53:24.570 | INFO     | __main__:start_logging_server:46 - Successfully loaded test.csv with shape (3, 3)
+2025-04-02 11:53:24.587 | INFO     | __main__:start_logging_server:46 - Aggregation completed successfully
+2025-04-02 11:53:24.587 | INFO     | __main__:start_logging_server:46 - Execution result for AggregateData: {'output': "Aggregation results for column 'salary':\n- mean: 85000.0\n- max: 95000\n", 'results': {'mean': np.float64(85000.0), 'max': np.int64(95000)}, 'should_stop': True}
+2025-04-02 11:53:24.588 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-02 11:53:24.588 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "What is the average and maximum salary in 'test.csv'?", 'output': "Aggregation results for column 'salary':\n- mean: 85000.0\n- max: 95000\n", 'intermediate_steps': [(AgentAction(tool='AggregateData', tool_input={'file_name': 'test.csv', 'column': 'salary', 'agg_funcs': ['mean', 'max']}, log='Thought:\n\nAction:\n```\n{\n  "action": "AggregateData",\n  "action_input": {\n    "file_name": "test.csv",\n    "column": "salary",\n    "agg_funcs": ["mean", "max"]\n  }\n}\n```\n\n'), {'output': "Aggregation results for column 'salary':\n- mean: 85000.0\n- max: 95000\n", 'results': {'mean': np.float64(85000.0), 'max': np.int64(95000)}, 'should_stop': True})]}
+2025-04-02 11:53:24.588 | INFO     | __main__:start_logging_server:46 - Agent execution stopping due to should_stop flag in intermediate steps.
+2025-04-02 11:53:24.589 | INFO     | __main__:start_logging_server:46 - Executing agent query: Show summary statistics for numeric columns in 'test.csv'
+2025-04-02 11:53:24.589 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Show summary statistics for numeric columns in 'test.csv'"}
+2025-04-02 11:53:27.065 | INFO     | __main__:start_logging_server:46 - Executing tool: SummaryStatistics with input: {'file_name': 'test.csv'}
+2025-04-02 11:53:27.071 | INFO     | __main__:start_logging_server:46 - Calculating summary statistics for test.csv
+2025-04-02 11:53:27.071 | INFO     | __main__:start_logging_server:46 - Loading data file: test.csv
+2025-04-02 11:53:27.076 | INFO     | __main__:start_logging_server:46 - Successfully loaded test.csv with shape (3, 3)
+2025-04-02 11:53:27.083 | INFO     | __main__:start_logging_server:46 - Summary statistics calculated successfully
+2025-04-02 11:53:27.083 | INFO     | __main__:start_logging_server:46 - Execution result for SummaryStatistics: {'output': 'Summary statistics:\n\nColumn: age\nmean: 35.00\nmax: 45\nmin: 28\nsum: 105\ncount: 3\n\nColumn: salary\nmean: 85000.00\nmax: 95000\nmin: 75000\nsum: 255000\ncount: 3\n', 'results': {'age': {'mean': np.float64(35.0), 'max': np.int64(45), 'min': np.int64(28), 'sum': np.int64(105), 'count': np.int64(3)}, 'salary': {'mean': np.float64(85000.0), 'max': np.int64(95000), 'min': np.int64(75000), 'sum': np.int64(255000), 'count': np.int64(3)}}, 'should_stop': True}
+2025-04-02 11:53:27.083 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-02 11:53:27.084 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Show summary statistics for numeric columns in 'test.csv'", 'output': 'Summary statistics:\n\nColumn: age\nmean: 35.00\nmax: 45\nmin: 28\nsum: 105\ncount: 3\n\nColumn: salary\nmean: 85000.00\nmax: 95000\nmin: 75000\nsum: 255000\ncount: 3\n', 'intermediate_steps': [(AgentAction(tool='SummaryStatistics', tool_input={'file_name': 'test.csv'}, log='Thought:\n\nAction:\n```\n{\n  "action": "SummaryStatistics",\n  "action_input": {"file_name": "test.csv"}\n}\n```\n\n'), {'output': 'Summary statistics:\n\nColumn: age\nmean: 35.00\nmax: 45\nmin: 28\nsum: 105\ncount: 3\n\nColumn: salary\nmean: 85000.00\nmax: 95000\nmin: 75000\nsum: 255000\ncount: 3\n', 'results': {'age': {'mean': np.float64(35.0), 'max': np.int64(45), 'min': np.int64(28), 'sum': np.int64(105), 'count': np.int64(3)}, 'salary': {'mean': np.float64(85000.0), 'max': np.int64(95000), 'min': np.int64(75000), 'sum': np.int64(255000), 'count': np.int64(3)}}, 'should_stop': True})]}
+2025-04-02 11:53:27.084 | INFO     | __main__:start_logging_server:46 - Agent execution stopping due to should_stop flag in intermediate steps.
+2025-04-02 11:53:27.084 | INFO     | __main__:start_logging_server:46 - Executing agent query: Calculate the correlation matrix for 'test.csv'
+2025-04-02 11:53:27.084 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Calculate the correlation matrix for 'test.csv'"}
+2025-04-02 11:53:30.215 | INFO     | __main__:start_logging_server:46 - Executing tool: CorrelationAnalysis with input: {'file_name': 'test.csv', 'cols': ['*']}
+2025-04-02 11:53:30.221 | INFO     | __main__:start_logging_server:46 - Calculating correlations in test.csv, columns: ['*']
+2025-04-02 11:53:30.221 | INFO     | __main__:start_logging_server:46 - Loading data file: test.csv
+2025-04-02 11:53:30.226 | INFO     | __main__:start_logging_server:46 - Successfully loaded test.csv with shape (3, 3)
+2025-04-02 11:53:30.232 | ERROR    | __main__:start_logging_server:42 - Columns not found: ['*']. Available: ['name', 'age', 'salary']
+2025-04-02 11:53:30.232 | INFO     | __main__:start_logging_server:46 - Execution result for CorrelationAnalysis: {'error': "Columns not found: ['*']. Available: ['name', 'age', 'salary']"}
+2025-04-02 11:53:34.328 | INFO     | __main__:start_logging_server:46 - Executing tool: CorrelationAnalysis with input: {'file_name': 'test.csv', 'cols': ['name', 'age', 'salary']}
+2025-04-02 11:53:34.330 | INFO     | __main__:start_logging_server:46 - Calculating correlations in test.csv, columns: ['name', 'age', 'salary']
+2025-04-02 11:53:34.330 | INFO     | __main__:start_logging_server:46 - Loading data file: test.csv
+2025-04-02 11:53:34.338 | INFO     | __main__:start_logging_server:46 - Successfully loaded test.csv with shape (3, 3)
+2025-04-02 11:53:34.358 | INFO     | __main__:start_logging_server:46 - Correlation analysis completed successfully
+2025-04-02 11:53:34.358 | INFO     | __main__:start_logging_server:46 - Execution result for CorrelationAnalysis: {'status': 'success', 'correlation_matrix': {'age': {'age': 1.0, 'salary': 0.7313071356019155}, 'salary': {'age': 0.7313071356019155, 'salary': 1.0}}, 'columns_used': ['age', 'salary'], 'should_stop': True}
+2025-04-02 11:53:34.359 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-02 11:53:34.360 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Calculate the correlation matrix for 'test.csv'", 'output': '', 'intermediate_steps': [(AgentAction(tool='CorrelationAnalysis', tool_input={'file_name': 'test.csv', 'cols': ['*']}, log='Thought:\n\nAction:\n```\n{\n  "action": "CorrelationAnalysis",\n  "action_input": {\n    "file_name": "test.csv",\n    "cols": ["*"]\n  }\n}\n```\n\n'), {'error': "Columns not found: ['*']. Available: ['name', 'age', 'salary']"}), (AgentAction(tool='CorrelationAnalysis', tool_input={'file_name': 'test.csv', 'cols': ['name', 'age', 'salary']}, log='Thought:\n\nAction:\n```\n{\n  "action": "CorrelationAnalysis",\n  "action_input": {\n    "file_name": "test.csv",\n    "cols": ["name", "age", "salary"]\n  }\n}\n```\n\n\n'), {'status': 'success', 'correlation_matrix': {'age': {'age': 1.0, 'salary': 0.7313071356019155}, 'salary': {'age': 0.7313071356019155, 'salary': 1.0}}, 'columns_used': ['age', 'salary'], 'should_stop': True})]}
+2025-04-02 11:53:34.360 | INFO     | __main__:start_logging_server:46 - Agent execution stopping due to should_stop flag in intermediate steps.
+2025-04-02 11:53:34.360 | INFO     | __main__:start_logging_server:46 - Executing agent query: Filter 'test.csv' where age > 30
+2025-04-02 11:53:34.360 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Filter 'test.csv' where age > 30"}
+2025-04-02 11:53:38.742 | INFO     | __main__:start_logging_server:46 - Executing tool: FilterData with input: {'file_name': {'title': 'File Name', 'type': 'string'}, 'conditions': [['age', '>=', 30]]}
+2025-04-02 11:53:38.749 | ERROR    | __main__:start_logging_server:42 - Error executing tool FilterData: 2 validation errors for FilterData
+file_name
+  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 'type': 'string'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+operations
+  Field required [type=missing, input_value={'file_name': {'title': '...s': [['age', '>=', 30]]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-04-02 11:53:38.750 | ERROR    | __main__:start_logging_server:42 - Error executing tool FilterData: 2 validation errors for FilterData
+file_name
+  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 'type': 'string'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+operations
+  Field required [type=missing, input_value={'file_name': {'title': '...s': [['age', '>=', 30]]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-04-02 11:53:38.750 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Filter 'test.csv' where age > 30", 'output': "Error executing tool FilterData: 2 validation errors for FilterData\nfile_name\n  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\noperations\n  Field required [type=missing, input_value={'file_name': {'title': '...s': [['age', '>=', 30]]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing", 'intermediate_steps': [(AgentAction(tool='FilterData', tool_input={'file_name': {'title': 'File Name', 'type': 'string'}, 'conditions': [['age', '>=', 30]]}, log='Thought:\n\nAction:\n```\n{\n  "action": "FilterData",\n  "action_input": {\n    "file_name": {"title": "File Name", "type": "string"},\n    "conditions": [\n      ["age", ">=", 30]\n    ]\n  }\n}\n```\n\n'), None)]}
+2025-04-02 11:53:38.750 | INFO     | __main__:start_logging_server:46 - Executing agent query: Sort 'test.csv' by salary in descending order
+2025-04-02 11:53:38.750 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Sort 'test.csv' by salary in descending order"}
+2025-04-02 11:53:43.529 | INFO     | __main__:start_logging_server:46 - Executing tool: FilterData with input: {'file_name': {'title': 'File Name', 'type': 'string'}, 'conditions': [['salary', '>=', '50000']]}
+2025-04-02 11:53:43.536 | ERROR    | __main__:start_logging_server:42 - Error executing tool FilterData: 2 validation errors for FilterData
+file_name
+  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 'type': 'string'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+operations
+  Field required [type=missing, input_value={'file_name': {'title': '...alary', '>=', '50000']]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-04-02 11:53:43.537 | ERROR    | __main__:start_logging_server:42 - Error executing tool FilterData: 2 validation errors for FilterData
+file_name
+  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 'type': 'string'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+operations
+  Field required [type=missing, input_value={'file_name': {'title': '...alary', '>=', '50000']]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-04-02 11:53:43.538 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Sort 'test.csv' by salary in descending order", 'output': "Error executing tool FilterData: 2 validation errors for FilterData\nfile_name\n  Input should be a valid string [type=string_type, input_value={'title': 'File Name', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\noperations\n  Field required [type=missing, input_value={'file_name': {'title': '...alary', '>=', '50000']]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing", 'intermediate_steps': [(AgentAction(tool='FilterData', tool_input={'file_name': {'title': 'File Name', 'type': 'string'}, 'conditions': [['salary', '>=', '50000']]}, log='Thought:\n\nAction:\n```\n{\n  "action": "FilterData",\n  "action_input": {\n    "file_name": {"title": "File Name", "type": "string"},\n    "conditions": [\n      ["salary", ">=", "50000"]\n    ]\n  }\n}\n```\n\n'), None)]}
+2025-04-02 11:53:43.539 | INFO     | __main__:start_logging_server:46 - Executing agent query: Create a new column 'bonus' as 10% of salary in 'test.csv'
+2025-04-02 11:53:43.539 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Create a new column 'bonus' as 10% of salary in 'test.csv'"}
+2025-04-02 11:54:01.003 | ERROR    | __main__:start_logging_server:42 - Error during planning at step 0: Could not parse LLM output: Thought:
+
+Action:
+```
+{
+  "action": "TransformData",
+  "action_input": {
+    "file_name": {"title": "File Name", "type": "string"},
+    "operations": [{"salary*0.1 as bonus"}],
+    "output_file": {"default": None, "title": "Output File", "type": "null"}
+  }
+}
+```
+
+
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-04-02 11:54:01.007 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Create a new column 'bonus' as 10% of salary in 'test.csv'", 'output': 'Error at step 0: Could not parse LLM output: Thought:\n\nAction:\n```\n{\n  "action": "TransformData",\n  "action_input": {\n    "file_name": {"title": "File Name", "type": "string"},\n    "operations": [{"salary*0.1 as bonus"}],\n    "output_file": {"default": None, "title": "Output File", "type": "null"}\n  }\n}\n```\n\n\nFor troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE ', 'intermediate_steps': []}
+2025-04-02 11:54:01.007 | INFO     | __main__:start_logging_server:46 - Executing agent query: Count employees by department in 'employees.csv'
+2025-04-02 11:54:01.007 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Count employees by department in 'employees.csv'"}
+2025-04-02 11:54:14.578 | INFO     | __main__:start_logging_server:46 - Executing tool: AggregateData with input: {'file_name': 'employees.csv', 'column': 'department', 'agg_funcs': ['count']}
+2025-04-02 11:54:14.587 | INFO     | __main__:start_logging_server:46 - Aggregating data in employees.csv, column: department, functions: ['count']
+2025-04-02 11:54:14.588 | INFO     | __main__:start_logging_server:46 - Loading data file: employees.csv
+2025-04-02 11:54:14.625 | INFO     | __main__:start_logging_server:46 - Successfully loaded employees.csv with shape (5, 6)
+2025-04-02 11:54:14.639 | ERROR    | __main__:start_logging_server:42 - Cannot aggregate non-numeric column 'department'
+2025-04-02 11:54:14.640 | INFO     | __main__:start_logging_server:46 - Execution result for AggregateData: {'output': "Cannot aggregate non-numeric column 'department'", 'should_stop': True}
+2025-04-02 11:54:14.640 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-02 11:54:14.640 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Count employees by department in 'employees.csv'", 'output': "Cannot aggregate non-numeric column 'department'", 'intermediate_steps': [(AgentAction(tool='AggregateData', tool_input={'file_name': 'employees.csv', 'column': 'department', 'agg_funcs': ['count']}, log='Thought:\nAction:\n```\n{\n  "action": "AggregateData",\n  "action_input": {\n    "file_name": "employees.csv",\n    "column": "department",\n    "agg_funcs": ["count"]\n  }\n}\n```\n\n'), {'output': "Cannot aggregate non-numeric column 'department'", 'should_stop': True})]}
+2025-04-02 11:54:14.641 | INFO     | __main__:start_logging_server:46 - Agent execution stopping due to should_stop flag in intermediate steps.
+2025-04-02 11:54:14.641 | INFO     | __main__:start_logging_server:46 - Executing agent query: sort the users by age in test.csv?sort the users by date in stock_data.csv with price more than 153?
+2025-04-02 11:54:14.641 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': 'sort the users by age in test.csv?sort the users by date in stock_data.csv with price more than 153?'}
+2025-04-02 11:54:20.122 | INFO     | __main__:start_logging_server:46 - Executing tool: FilterData with input: {'file_name': 'stock_data.csv', 'conditions': [['date', '>=', '2022-01-01'], ['price', '>=', 153]]}
+2025-04-02 11:54:20.127 | ERROR    | __main__:start_logging_server:42 - Error executing tool FilterData: 1 validation error for FilterData
+operations
+  Field required [type=missing, input_value={'file_name': 'stock_data..., ['price', '>=', 153]]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-04-02 11:54:20.127 | ERROR    | __main__:start_logging_server:42 - Error executing tool FilterData: 1 validation error for FilterData
+operations
+  Field required [type=missing, input_value={'file_name': 'stock_data..., ['price', '>=', 153]]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-04-02 11:54:20.127 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': 'sort the users by age in test.csv?sort the users by date in stock_data.csv with price more than 153?', 'output': "Error executing tool FilterData: 1 validation error for FilterData\noperations\n  Field required [type=missing, input_value={'file_name': 'stock_data..., ['price', '>=', 153]]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing", 'intermediate_steps': [(AgentAction(tool='FilterData', tool_input={'file_name': 'stock_data.csv', 'conditions': [['date', '>=', '2022-01-01'], ['price', '>=', 153]]}, log='Thought:\nThe human wants to sort data based on different conditions.\n\nAction:\n```\n{\n  "action": "FilterData",\n  "action_input": {\n    "file_name": "stock_data.csv",\n    "conditions": [\n      ["date", ">=", "2022-01-01"],\n      ["price", ">=", 153]\n    ]\n  }\n}\n```\n\n'), None)]}
+2025-04-02 23:33:29.927 | INFO     | __main__:start_logging_server:30 - Logging server started on port 5555
+2025-04-02 23:33:41.744 | INFO     | __main__:start_logging_server:46 - Starting API server
+2025-04-02 23:33:43.030 | INFO     | __main__:start_logging_server:46 - Starting API initialization
+2025-04-02 23:33:43.030 | INFO     | __main__:start_logging_server:46 - Starting API initialization
+2025-04-02 23:33:43.057 | INFO     | __main__:start_logging_server:46 - Setting up tools...
+2025-04-02 23:33:43.058 | INFO     | __main__:start_logging_server:46 - Setting up tools...
+2025-04-02 23:33:43.076 | INFO     | __main__:start_logging_server:46 - Initializing agent...
+2025-04-02 23:33:43.076 | INFO     | __main__:start_logging_server:46 - Initializing agent...
+2025-04-02 23:33:43.079 | INFO     | __main__:start_logging_server:46 - Creating custom agent executor...
+2025-04-02 23:33:43.079 | INFO     | __main__:start_logging_server:46 - Custom agent executor successfully initialized.
+2025-04-02 23:33:43.079 | INFO     | __main__:start_logging_server:46 - Creating custom agent executor...
+2025-04-02 23:33:43.079 | INFO     | __main__:start_logging_server:46 - Custom agent executor successfully initialized.
+2025-04-02 23:33:43.093 | INFO     | __main__:start_logging_server:46 - API initialized successfully
+2025-04-02 23:33:43.093 | INFO     | __main__:start_logging_server:46 - API initialized successfully
+2025-04-02 23:36:01.489 | INFO     | __main__:start_logging_server:30 - Logging server started on port 5555
+2025-04-02 23:36:32.933 | INFO     | __main__:start_logging_server:30 - Logging server started on port 5555
+2025-04-03 00:57:05.842 | INFO     | __main__:start_logging_server:30 - Logging server started on port 5555
+2025-04-03 00:57:29.371 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 00:57:29.422 | INFO     | __main__:start_logging_server:46 - Initializing new chat session
+2025-04-03 00:57:34.117 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 00:57:34.131 | INFO     | __main__:start_logging_server:46 - New user input received: List all the files...
+2025-04-03 00:57:34.133 | INFO     | __main__:start_logging_server:46 - Making API request to /execute-query
+2025-04-03 00:57:34.143 | ERROR    | __main__:start_logging_server:42 - API connection failed
+2025-04-03 00:57:44.238 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-03 00:57:49.295 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 00:57:49.356 | INFO     | __main__:start_logging_server:46 - Initializing new chat session
+2025-04-03 00:57:54.403 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 00:57:54.409 | INFO     | __main__:start_logging_server:46 - New user input received: List all the files...
+2025-04-03 00:57:54.411 | INFO     | __main__:start_logging_server:46 - Making API request to /execute-query
+2025-04-03 00:57:54.423 | ERROR    | __main__:start_logging_server:42 - API connection failed
+2025-04-03 00:58:04.659 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 00:58:04.672 | INFO     | __main__:start_logging_server:46 - Initiating API health check
+2025-04-03 00:58:04.679 | ERROR    | __main__:start_logging_server:42 - API connection failed: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x12706a2c0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-04-03 01:01:52.759 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-03 01:01:58.261 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 01:01:58.332 | INFO     | __main__:start_logging_server:46 - Initializing new chat session
+2025-04-03 01:02:03.350 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 01:02:03.354 | INFO     | __main__:start_logging_server:46 - New user input received: List all the files...
+2025-04-03 01:02:03.356 | INFO     | __main__:start_logging_server:46 - Making API request to /execute-query
+2025-04-03 01:02:03.359 | ERROR    | __main__:start_logging_server:42 - API connection failed
+2025-04-03 01:02:13.433 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 01:02:13.444 | INFO     | __main__:start_logging_server:46 - Initiating API health check
+2025-04-03 01:02:13.458 | ERROR    | __main__:start_logging_server:42 - API connection failed: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11fcb96c0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-04-03 01:02:14.709 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 01:02:14.715 | INFO     | __main__:start_logging_server:46 - Initiating API health check
+2025-04-03 01:02:14.720 | ERROR    | __main__:start_logging_server:42 - API connection failed: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11fcba740>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-04-03 01:02:15.176 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 01:02:15.182 | INFO     | __main__:start_logging_server:46 - Initiating API health check
+2025-04-03 01:02:15.187 | ERROR    | __main__:start_logging_server:42 - API connection failed: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11fcbb610>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-04-03 01:02:15.373 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-03 01:02:15.378 | INFO     | __main__:start_logging_server:46 - Initiating API health check
+2025-04-03 01:02:15.382 | ERROR    | __main__:start_logging_server:42 - API connection failed: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11fcbbdf0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-04-04 23:08:45.926 | INFO     | __main__:start_logging_server:30 - Logging server started on port 5555
+2025-04-04 23:08:45.930 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-04 23:08:45.930 | INFO     | __main__:start_logging_server:46 - Initializing new chat session
+2025-04-04 23:08:45.930 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-04 23:08:45.930 | INFO     | __main__:start_logging_server:46 - New user input received: Create a histogram of salaries from 'test.csv'...
+2025-04-04 23:08:45.930 | INFO     | __main__:start_logging_server:46 - Making API request to /execute-query
+2025-04-04 23:08:45.930 | INFO     | __main__:start_logging_server:46 - API response received in 28.54 seconds
+2025-04-04 23:08:45.930 | INFO     | __main__:start_logging_server:46 - Query processed successfully in 28.54s
+2025-04-04 23:09:38.092 | INFO     | __main__:start_logging_server:46 - Starting API initialization
+2025-04-04 23:09:38.119 | INFO     | __main__:start_logging_server:46 - Setting up tools...
+2025-04-04 23:09:38.135 | INFO     | __main__:start_logging_server:46 - Initializing agent...
+2025-04-04 23:09:38.139 | INFO     | __main__:start_logging_server:46 - Creating custom agent executor...
+2025-04-04 23:09:38.139 | INFO     | __main__:start_logging_server:46 - Custom agent executor successfully initialized.
+2025-04-04 23:09:38.139 | INFO     | __main__:start_logging_server:46 - API initialized successfully in 0.05 seconds
+2025-04-04 23:09:59.639 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-04 23:09:59.674 | INFO     | __main__:start_logging_server:46 - Initializing new chat session
+2025-04-04 23:10:10.495 | INFO     | __main__:start_logging_server:46 - Initializing Streamlit application
+2025-04-04 23:10:10.500 | INFO     | __main__:start_logging_server:46 - New user input received: Create a histogram of salaries from 'test.csv'...
+2025-04-04 23:10:10.501 | INFO     | __main__:start_logging_server:46 - Making API request to /execute-query
+2025-04-04 23:10:10.518 | INFO     | __main__:start_logging_server:46 - New query received from session streamlit_session_1743788410.501239
+2025-04-04 23:10:10.518 | INFO     | __main__:start_logging_server:46 - Executing agent query: Available files: sales_data.csv, test.csv, employees.csv
+
+Question: Create a histogram of salaries from 'test.csv'
+2025-04-04 23:10:10.519 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': "Available files: sales_data.csv, test.csv, employees.csv\n\nQuestion: Create a histogram of salaries from 'test.csv'"}
+2025-04-04 23:10:24.305 | INFO     | __main__:start_logging_server:46 - Executing tool: VisualizeData with input: {'file_name': 'test.csv', 'plot_type': 'histogram', 'y_col': 'salary'}
+2025-04-04 23:10:24.343 | INFO     | __main__:start_logging_server:46 - Starting visualization: histogram plot for test.csv
+2025-04-04 23:10:24.344 | INFO     | __main__:start_logging_server:46 - Loading data file: test.csv
+2025-04-04 23:10:24.561 | INFO     | __main__:start_logging_server:46 - Successfully loaded test.csv with shape (3, 3)
+2025-04-04 23:10:24.616 | INFO     | __main__:start_logging_server:46 - Data loaded successfully. Shape: (3, 3)
+2025-04-04 23:10:26.230 | INFO     | __main__:start_logging_server:46 - Successfully created hist plot: plots/hist_plot_20250404_174024.png
+2025-04-04 23:10:26.231 | INFO     | __main__:start_logging_server:46 - Tool VisualizeData execution successful. Result: {'output': 'Successfully created hist plot: plots/hist_plot_20250404_174024.png', 'plot_file': 'plots/hist_plot_20250404_174024.png', 'should_stop': True}
+2025-04-04 23:10:26.232 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-04 23:10:26.232 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': "Available files: sales_data.csv, test.csv, employees.csv\n\nQuestion: Create a histogram of salaries from 'test.csv'", 'output': 'Successfully created hist plot: plots/hist_plot_20250404_174024.png', 'intermediate_steps': [(AgentAction(tool='VisualizeData', tool_input={'file_name': 'test.csv', 'plot_type': 'histogram', 'y_col': 'salary'}, log='Action:\n```\n{\n  "action": "VisualizeData",\n  "action_input": {\n    "file_name": "test.csv",\n    "plot_type": "histogram",\n    "y_col": "salary"\n  }\n}\n```\n\n'), {'output': 'Successfully created hist plot: plots/hist_plot_20250404_174024.png', 'plot_file': 'plots/hist_plot_20250404_174024.png', 'should_stop': True})], 'should_stop': True}
+2025-04-04 23:10:26.232 | INFO     | __main__:start_logging_server:46 - Agent stopping due to should_stop in steps.
+2025-04-04 23:10:26.232 | INFO     | __main__:start_logging_server:46 - Query processed in 15.71 seconds
+2025-04-04 23:10:26.267 | INFO     | __main__:start_logging_server:46 - API response received in 15.76 seconds
+2025-04-04 23:10:26.277 | INFO     | __main__:start_logging_server:46 - Query processed successfully in 15.76s
+2025-04-05 15:56:21.255 | INFO     | __main__:start_logging_server:30 - Logging server started on port 5555
+2025-04-05 15:56:24.868 | INFO     | __main__:start_logging_server:46 - Starting API initialization
+2025-04-05 15:56:24.903 | INFO     | __main__:start_logging_server:46 - Setting up tools...
+2025-04-05 15:56:24.921 | INFO     | __main__:start_logging_server:46 - Initializing agent...
+2025-04-05 15:56:24.925 | INFO     | __main__:start_logging_server:46 - Creating custom agent executor...
+2025-04-05 15:56:24.925 | INFO     | __main__:start_logging_server:46 - Custom agent executor successfully initialized.
+2025-04-05 15:56:24.925 | INFO     | __main__:start_logging_server:46 - API initialized successfully in 0.06 seconds
+2025-04-05 15:56:26.078 | INFO     | __main__:start_logging_server:46 - Initializing Enhanced Streamlit application
+2025-04-05 15:56:26.132 | INFO     | __main__:start_logging_server:46 - Initializing new chat session
+2025-04-05 15:56:40.077 | INFO     | __main__:start_logging_server:46 - Initializing Enhanced Streamlit application
+2025-04-05 15:56:40.089 | INFO     | __main__:start_logging_server:46 - New user input received: List all the files...
+2025-04-05 15:56:40.652 | INFO     | __main__:start_logging_server:46 - Making API request to /execute-query
+2025-04-05 15:56:40.676 | INFO     | __main__:start_logging_server:46 - New query received from session streamlit_session_1743848800.089613
+2025-04-05 15:56:40.677 | INFO     | __main__:start_logging_server:46 - Executing agent query: Available files: sales_data.csv, test.csv, employees.csv
+
+Question: List all the files
+2025-04-05 15:56:40.678 | INFO     | __main__:start_logging_server:46 - Agent execution started with inputs: {'input': 'Available files: sales_data.csv, test.csv, employees.csv\n\nQuestion: List all the files'}
+2025-04-05 15:56:53.217 | INFO     | __main__:start_logging_server:46 - Executing tool: ListFiles with input: {}
+2025-04-05 15:56:53.998 | INFO     | __main__:start_logging_server:46 - Listing available data files
+2025-04-05 15:56:53.998 | INFO     | __main__:start_logging_server:46 - Tool ListFiles execution successful. Result: {'output': 'Available data files: sales_data.csv, test.csv, employees.csv', 'files': ['sales_data.csv', 'test.csv', 'employees.csv'], 'should_stop': True}
+2025-04-05 15:56:54.000 | INFO     | __main__:start_logging_server:46 - Stopping execution based on observation.
+2025-04-05 15:56:54.000 | INFO     | __main__:start_logging_server:46 - Agent response: {'input': 'Available files: sales_data.csv, test.csv, employees.csv\n\nQuestion: List all the files', 'output': 'Available data files: sales_data.csv, test.csv, employees.csv', 'intermediate_steps': [(AgentAction(tool='ListFiles', tool_input={}, log='Action:\n```\n{\n  "action": "ListFiles",\n  "args": {}\n}\n```\n\n'), {'output': 'Available data files: sales_data.csv, test.csv, employees.csv', 'files': ['sales_data.csv', 'test.csv', 'employees.csv'], 'should_stop': True})], 'should_stop': True}
+2025-04-05 15:56:54.000 | INFO     | __main__:start_logging_server:46 - Agent stopping due to should_stop in steps.
+2025-04-05 15:56:54.000 | INFO     | __main__:start_logging_server:46 - Query processed in 12.56 seconds
+2025-04-05 15:56:54.001 | INFO     | __main__:start_logging_server:46 - API response received in 12.61 seconds
+2025-04-05 15:56:54.002 | INFO     | __main__:start_logging_server:46 - Query processed successfully in 12.61s
+2025-04-07 12:54:39.520 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-07 23:43:30.360 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-07 23:45:41.393 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-07 23:47:07.422 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-07 23:49:13.602 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-08 01:22:30.124 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-08 01:24:50.393 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-08 01:36:00.661 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-08 01:37:58.742 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')
+2025-04-08 01:40:38.579 | ERROR    | __main__:start_logging_server:50 - Logging server error: Address already in use (addr='tcp://0.0.0.0:5555')

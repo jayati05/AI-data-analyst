@@ -1,0 +1,8 @@
+{
+    "logging": {
+      "log_file_name": "logs/app.log",
+      "min_log_level": "INFO",
+      "log_rotation": "00:00",
+      "log_compression": "zip"
+    }
+  }

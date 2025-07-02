@@ -1,0 +1,45 @@
+[api]
+version = "1.0"
+host = "0.0.0.0"
+port = 8000
+workers = 1
+
+[cors]
+allow_origins = ["*"]
+allow_methods = ["*"]
+allow_headers = ["*"]
+
+# Logging Configuration
+[logging]
+file_name = "logs/unified_logs.log" # Path to log file (relative to app root)
+rotation_size = "10MB"             # Rotate logs when reaching this size
+compression = "zip"                # Compression algorithm for old logs (none, zip, gz)
+min_level = "INFO"                 # Minimum log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+server_port = 5555                 # Port for logging server (0 to disable)
+
+# Test Configuration
+[test_queries]
+paths = [                          # Data files used for testing
+    "test.csv",
+    "sample.json"
+]
+queries = [                        # Default test queries
+    "Check for missing values in {file}",
+    "Identify outliers in the salary column of {file}",
+    "Show summary statistics for {file}",
+    "Generate a histogram of age distribution from {file}"
+]
+
+# Agent Configuration
+[agent]
+timeout_seconds = 30               # Maximum execution time for agent operations (in seconds)
+max_query_length = 1000            # Maximum allowed query length (in characters)
+default_data_path = "./data"       # Default path for data files (relative to app root)
+cache_enabled = true               # Enable result caching
+cache_ttl = 3600                   # Cache time-to-live in seconds
+
+# Rate Limiting Configuration (optional)
+[rate_limits]
+enabled = false                    # Enable rate limiting
+requests_per_minute = 60           # Default rate limit
+burst_capacity = 10                # Burst capacity for short spikes
